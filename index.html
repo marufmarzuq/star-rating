@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Star Rating</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                padding-top: 20px;
+            }
+            .product {
+                margin: 0 20px 20px;
+                background-color: lightblue;
+                padding: 50px;
+                display: grid;
+                place-items: center;
+            }
+            .outer {
+                background-image: url(./images/outer-star.png);
+                height: 17px;
+                width: 90px;
+                background-size: 18px;
+            }
+            .inner {
+                background-image: url(./images/inner-star.png);
+                height: 17px;
+                width: 90px;
+                background-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="product product_1">
+                <h1>Product 1</h1>
+                <div class="rating">
+                    <div class="outer">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product product_2">
+                <h1>Product 2</h1>
+                <div class="rating">
+                    <div class="outer">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product product_3">
+                <h1>Product 3</h1>
+                <div class="rating">
+                    <div class="outer">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const ratings = {
+                    product_1: 1.5,
+                    product_2: 3,
+                    product_3: 5,
+                }
+                for (const rating in ratings) {
+                    let ratePercentage = (ratings[rating] / 5) * 100;
+                    const inner = document.querySelector(`.${rating} .inner`)
+                    inner.style.width = `${ratePercentage}%`
+                }
+            </script>
+    </body>
+</html>
